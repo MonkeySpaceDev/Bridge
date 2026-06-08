@@ -1,75 +1,4 @@
-<h1>Bridge</h1>
-
-<p>מצא חברים אמיתיים באזור שלך</p>
-
-<input id="nameInput" type="text" placeholder="השם שלך">
-
-<input id="ageInput" type="number" placeholder="הגיל שלך">
-<input id="cityInput" type="text" placeholder="אזור מגורים">
-<p>מצא חברים אמיתיים באזור שלך</p>
-
-
-
-
-input id="cityInput" type="text" placeholder="אזור מגורים">
-<select id="interestInput">
-
-<option>🎮 גיימינג</option>
-
-  <option>⚽ ספורט</option>
-
-  <option>🚀 יזמות</option>
-
-  <option>💻 טכנולוגיה</option>
- </select>
-
-<button id="findBtn">מצא חבר</button>
-<textarea id="bioInput" placeholder="ספר על עצמך"></textarea>
-<p id="result"></p>
-<div id="friends"></div>
-<button id="addBtn">הצטרף לקהילה</button>
-<button id="matchBtn">מצא אנשים כמוני</button>
-
-<div id="matches"></div>body {
-
-  font-family: Arial;
-
-  text-align: center;
-
-  margin-top: 50px;
-
-}
-
-h1 {
-
-  color: blue;
-
-}
-
-input {
-
-  padding: 10px;
-
-  margin: 10px;
-
-}
-
-button {
-
-  padding: 10px 20px;
-
-}
-textarea {
-
-  display: block;
-
-  margin: 10px auto;
-
-  width: 250px;
-
-  height: 80px;
-
-}let users = JSON.parse(localStorage.getItem("users")) || [];
+let users = JSON.parse(localStorage.getItem("users")) || [];
 
 document.querySelector("#addBtn").onclick = function() {
 
@@ -97,7 +26,17 @@ document.querySelector("#addBtn").onclick = function() {
 
     return;
 
+  }for (let i = 0; i < users.length; i++) {
+
+  if (users[i].name === name && users[i].city === city) {
+
+    alert("המשתמש הזה כבר קיים בקהילה");
+
+    return;
+
   }
+
+}
 
   users.push({
 
@@ -151,7 +90,9 @@ function showUsers() {
 
   }
 
-  document.querySelector("#friends").innerHTML = html;
+ document.querySelector("#communityCount").innerHTML =
+
+"👥 חברים בקהילה: " + users.length; document.querySelector("#friends").innerHTML = html;
 
 }
 
