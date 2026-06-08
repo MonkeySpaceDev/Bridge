@@ -1,16 +1,73 @@
-let users = JSON.parse(localStorage.getItem("users")) || [];
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-document.querySelector("#addBtn").onclick = function() {
+import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-  let name = document.querySelector("#nameInput").value;
+// הדבק כאן את firebaseConfig שלך מ-Firebase
+const firebaseConfig = {
 
-  let age = document.querySelector("#ageInput").value;
+  apiKey: "AIzaSyDbcbj-ctvoWX1rNHSY7q325kKGtYkal9M",
 
-  let city = document.querySelector("#cityInput").value;
+  authDomain: "bridge-9df1d.firebaseapp.com",
 
-  let interest = document.querySelector("#interestInput").value;
+  projectId: "bridge-9df1d",
 
-  let bio = document.querySelector("#bioInput").value;
+  storageBucket: "bridge-9df1d.firebasestorage.app",
+
+  messagingSenderId: "189361266838",
+
+  appId: "1:189361266838:web:980d9e7fbd6e7971b322b7",
+
+  measurementId: "G-BC6J6YN0Y0"
+
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+
+
+
+const db = getFirestore(app);
+
+async function showUsers() {
+
+  const usersBox = document.querySelector("#friends");
+
+  usersBox.innerHTML = "<h3>חברי הקהילה:</h3>";
+
+  const querySnapshot = await getDocs(collection(db, "users"));
+
+  document.querySelector("#communityCount").innerHTML =
+
+    "👥 " + querySnapshot.size + " חברים בקהילה";
+
+  querySnapshot.forEach((doc) => {
+
+    const user = doc.data();
+
+    usersBox.innerHTML += `
+
+      <p>👤 ${user.name} - גיל ${user.age} - ${user.city} - ${user.interest || user.hobby}<br>
+
+      ${user.bio || ""}</p>
+
+    `;
+
+  });
+
+}
+
+document.querySelector("#addBtn").onclick = async function () {
+
+  const name = document.querySelector("#nameInput").value;
+
+  const age = document.querySelector("#ageInput").value;
+
+  const city = document.querySelector("#cityInput").value;
+
+  const interest = document.querySelector("#interestInput").value;
+
+  const bio = document.querySelector("#bioInput").value;
 
   if (name === "") {
 
@@ -26,23 +83,13 @@ document.querySelector("#addBtn").onclick = function() {
 
     return;
 
-  }for (let i = 0; i < users.length; i++) {
-
-  if (users[i].name === name && users[i].city === city) {
-
-    alert("המשתמש הזה כבר קיים בקהילה");
-
-    return;
-
   }
 
-}
-
-  users.push({
+  await addDoc(collection(db, "users"), {
 
     name: name,
 
-    age: age,
+    age: Number(age),
 
     city: city,
 
@@ -52,89 +99,9 @@ document.querySelector("#addBtn").onclick = function() {
 
   });
 
-  localStorage.setItem("users", JSON.stringify(users));
+  alert("🎉 ברוך הבא לקהילת Bridge");
 
   showUsers();
-
-  alert("ברוך הבא לקהילת Bridge 🎉");
-
-};
-
-function showUsers() {
-
-  let html = "<h3>חברי הקהילה:</h3>";
-
-  for (let i = 0; i < users.length; i++) {
-
-    html += "<p>👤 " +
-
-      users[i].name +
-
-      " - גיל " +
-
-      users[i].age +
-
-      " - " +
-
-      users[i].city +
-
-      " - " +
-
-      users[i].interest +
-
-      "<br>" +
-
-      users[i].bio +
-
-      "</p>";
-
-  }
-
- document.querySelector("#communityCount").innerHTML =
-
-"👥 חברים בקהילה: " + users.length; document.querySelector("#friends").innerHTML = html;
-
-}
-
-document.querySelector("#matchBtn").onclick = function() {
-
-  let city = document.querySelector("#cityInput").value;
-
-  let interest = document.querySelector("#interestInput").value;
-
-  let html = "<h3>אנשים שמתאימים לך:</h3>";
-
-  for (let i = 0; i < users.length; i++) {
-
-    if (users[i].city === city && users[i].interest === interest) {
-
-      html += "<p>🤝 " +
-
-        users[i].name +
-
-        " - גיל " +
-
-        users[i].age +
-
-        " - " +
-
-        users[i].city +
-
-        " - " +
-
-        users[i].interest +
-
-        "<br>" +
-
-        users[i].bio +
-
-        "</p>";
-
-    }
-
-  }
-
-  document.querySelector("#matches").innerHTML = html;
 
 };
 
