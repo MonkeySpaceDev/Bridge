@@ -1,0 +1,33 @@
+<h1>Bridge</h1>
+
+<p>מצא חברים אמיתיים באזור שלך</p>
+
+<input id="nameInput" type="text" placeholder="השם שלך">
+
+<input id="ageInput" type="number" placeholder="הגיל שלך">
+<input id="cityInput" type="text" placeholder="אזור מגורים">
+<p>מצא חברים אמיתיים באזור שלך</p>
+
+
+
+
+input id="cityInput" type="text" placeholder="אזור מגורים">
+<select id="interestInput">
+
+<option>🎮 גיימינג</option>
+
+  <option>⚽ ספורט</option>
+
+  <option>🚀 יזמות</option>
+
+  <option>💻 טכנולוגיה</option>
+ </select>
+
+<button id="findBtn">מצא חבר</button>
+<textarea id="bioInput" placeholder="ספר על עצמך"></textarea>
+<p id="result"></p>
+<div id="friends"></div>
+<button id="addBtn">הצטרף לקהילה</button>
+<button id="matchBtn">מצא אנשים כמוני</button>
+
+<div id="matches"></div>

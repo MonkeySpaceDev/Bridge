@@ -1,0 +1,200 @@
+<h1>Bridge</h1>
+
+<p>מצא חברים אמיתיים באזור שלך</p>
+
+<input id="nameInput" type="text" placeholder="השם שלך">
+
+<input id="ageInput" type="number" placeholder="הגיל שלך">
+<input id="cityInput" type="text" placeholder="אזור מגורים">
+<p>מצא חברים אמיתיים באזור שלך</p>
+
+
+
+
+input id="cityInput" type="text" placeholder="אזור מגורים">
+<select id="interestInput">
+
+<option>🎮 גיימינג</option>
+
+  <option>⚽ ספורט</option>
+
+  <option>🚀 יזמות</option>
+
+  <option>💻 טכנולוגיה</option>
+ </select>
+
+<button id="findBtn">מצא חבר</button>
+<textarea id="bioInput" placeholder="ספר על עצמך"></textarea>
+<p id="result"></p>
+<div id="friends"></div>
+<button id="addBtn">הצטרף לקהילה</button>
+<button id="matchBtn">מצא אנשים כמוני</button>
+
+<div id="matches"></div>body {
+
+  font-family: Arial;
+
+  text-align: center;
+
+  margin-top: 50px;
+
+}
+
+h1 {
+
+  color: blue;
+
+}
+
+input {
+
+  padding: 10px;
+
+  margin: 10px;
+
+}
+
+button {
+
+  padding: 10px 20px;
+
+}
+textarea {
+
+  display: block;
+
+  margin: 10px auto;
+
+  width: 250px;
+
+  height: 80px;
+
+}let users = JSON.parse(localStorage.getItem("users")) || [];
+
+document.querySelector("#addBtn").onclick = function() {
+
+  let name = document.querySelector("#nameInput").value;
+
+  let age = document.querySelector("#ageInput").value;
+
+  let city = document.querySelector("#cityInput").value;
+
+  let interest = document.querySelector("#interestInput").value;
+
+  let bio = document.querySelector("#bioInput").value;
+
+  if (name === "") {
+
+    alert("נא להזין שם");
+
+    return;
+
+  }
+
+  if (city === "") {
+
+    alert("נא להזין אזור מגורים");
+
+    return;
+
+  }
+
+  users.push({
+
+    name: name,
+
+    age: age,
+
+    city: city,
+
+    interest: interest,
+
+    bio: bio
+
+  });
+
+  localStorage.setItem("users", JSON.stringify(users));
+
+  showUsers();
+
+  alert("ברוך הבא לקהילת Bridge 🎉");
+
+};
+
+function showUsers() {
+
+  let html = "<h3>חברי הקהילה:</h3>";
+
+  for (let i = 0; i < users.length; i++) {
+
+    html += "<p>👤 " +
+
+      users[i].name +
+
+      " - גיל " +
+
+      users[i].age +
+
+      " - " +
+
+      users[i].city +
+
+      " - " +
+
+      users[i].interest +
+
+      "<br>" +
+
+      users[i].bio +
+
+      "</p>";
+
+  }
+
+  document.querySelector("#friends").innerHTML = html;
+
+}
+
+document.querySelector("#matchBtn").onclick = function() {
+
+  let city = document.querySelector("#cityInput").value;
+
+  let interest = document.querySelector("#interestInput").value;
+
+  let html = "<h3>אנשים שמתאימים לך:</h3>";
+
+  for (let i = 0; i < users.length; i++) {
+
+    if (users[i].city === city && users[i].interest === interest) {
+
+      html += "<p>🤝 " +
+
+        users[i].name +
+
+        " - גיל " +
+
+        users[i].age +
+
+        " - " +
+
+        users[i].city +
+
+        " - " +
+
+        users[i].interest +
+
+        "<br>" +
+
+        users[i].bio +
+
+        "</p>";
+
+    }
+
+  }
+
+  document.querySelector("#matches").innerHTML = html;
+
+};
+
+showUsers();
