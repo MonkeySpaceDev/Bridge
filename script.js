@@ -125,46 +125,7 @@ document.querySelector("#searchInput")
   querySnapshot.forEach((doc) => {
 
     const question = doc.data();
-
-
- 
-
- 
-
-const searchInput = document.querySelector("#searchInput");
-
-const searchText = searchInput
-
-  ? searchInput.value.trim().toLowerCase()
-
-  : "";
-
-const title = (question.title || "").toLowerCase();
-
-const content = (question.content || "").toLowerCase();
-
-const category = (question.category || "").toLowerCase();
-
-if (
-
-  searchText &&
-
-  !title.includes(searchText) &&
-
-  !content.includes(searchText) &&
-
-  !category.includes(searchText)
-
-) {
-
-  return;
-
-}
-
-
-
-
-}
+    
     questionsList.innerHTML += `
 
       <div>
