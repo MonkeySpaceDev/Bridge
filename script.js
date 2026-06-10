@@ -179,3 +179,70 @@ document.querySelector("#questionBtn").onclick = async function () {
 };
 
 showQuestions();
+async function showAnswers() {
+
+  const answersList = document.querySelector("#answersList");
+
+  if (!answersList) return;
+
+  answersList.innerHTML = "";
+
+  const querySnapshot = await getDocs(collection(db, "answers"));
+
+  querySnapshot.forEach((doc) => {
+
+    const answer = doc.data();
+
+    answersList.innerHTML += `
+
+      <div>
+
+        <p>💬 ${answer.content}</p>
+
+        <p><small>שאלה: ${answer.questionId}</small></p>
+
+        <hr>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+document.querySelector("#answerBtn").onclick = async function () {
+
+  const questionId = document.querySelector("#answerQuestionId").value;
+
+  const content = document.querySelector("#answerContent").value;
+
+  if (questionId === "" || content === "") {
+
+    alert("מלא מזהה שאלה ותוכן תגובה");
+
+    return;
+
+  }
+
+  await addDoc(collection(db, "answers"), {
+
+    questionId: questionId,
+
+    content: content,
+
+    createdAt: Date.now()
+
+  });
+
+  alert("תגובה נשלחה");
+
+  document.querySelector("#answerQuestionId").value = "";
+
+  document.querySelector("#answerContent").value = "";
+
+  showAnswers();
+
+};
+
+showAnswers();
