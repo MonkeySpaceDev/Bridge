@@ -125,7 +125,7 @@ document.querySelector("#searchInput")
   querySnapshot.forEach((doc) => {
 
     const question = doc.data();
-if (
+
 
  const title = (question.title || "").toLowerCase();
 
