@@ -281,7 +281,13 @@ async function loadAnswers(questionId) {
     }
 
   });
+const container = document.querySelector(`#answers-${questionId}`);
 
+if (container) {
+
+  container.innerHTML = html;
+
+}
   const container = document.querySelector(`#answers-${questionId}`);
 
   if (container) {
