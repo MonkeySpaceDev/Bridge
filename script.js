@@ -106,3 +106,76 @@ document.querySelector("#addBtn").onclick = async function () {
 };
 
 showUsers();
+async function showQuestions() {
+
+  const questionsList = document.querySelector("#questionsList");
+
+  if (!questionsList) return;
+
+  questionsList.innerHTML = "";
+
+  const querySnapshot = await getDocs(collection(db, "question"));
+
+  querySnapshot.forEach((doc) => {
+
+    const question = doc.data();
+
+    questionsList.innerHTML += `
+
+      <div>
+
+        <h3>${question.title}</h3>
+
+        <p><b>קטגוריה:</b> ${question.category}</p>
+
+        <p>${question.content}</p>
+
+        <hr>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+document.querySelector("#questionBtn").onclick = async function () {
+
+  const title = document.querySelector("#questionTitle").value;
+
+  const category = document.querySelector("#questionCategory").value;
+
+  const content = document.querySelector("#questionContent").value;
+
+  if (title === "" || content === "") {
+
+    alert("נא למלא כותרת ותוכן");
+
+    return;
+
+  }
+
+  await addDoc(collection(db, "question"), {
+
+    title: title,
+
+    category: category,
+
+    content: content,
+
+    createdAt: Date.now()
+
+  });
+
+  alert("השאלה פורסמה בהצלחה");
+
+  document.querySelector("#questionTitle").value = "";
+
+  document.querySelector("#questionContent").value = "";
+
+  showQuestions();
+
+};
+
+showQuestions();
