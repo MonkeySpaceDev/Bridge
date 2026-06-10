@@ -129,7 +129,11 @@ async function showQuestions() {
         <p><b>קטגוריה:</b> ${question.category}</p>
 
         <p>${question.content}</p>
+<button onclick="fillQuestionId('${doc.id}')">
 
+הגב לשאלה
+
+</button>
         <hr>
 
       </div>
@@ -246,3 +250,12 @@ document.querySelector("#answerBtn").onclick = async function () {
 };
 
 showAnswers();
+window.fillQuestionId = function(id) {
+
+  document.querySelector(
+
+    "#answerQuestionId"
+
+  ).value = id;
+
+};
