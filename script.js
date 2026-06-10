@@ -258,3 +258,26 @@ document.querySelector("#answerBtn").onclick = async function () {
 showUsers();
 
 showQuestions();
+const enterBtn =
+
+document.querySelector("#enterBtn");
+
+if (enterBtn) {
+
+  enterBtn.onclick = function () {
+
+    document.querySelector(
+
+      "#landingPage"
+
+    ).style.display = "none";
+
+    document.querySelector(
+
+      "#homePage"
+
+    ).style.display = "block";
+
+  };
+
+}
