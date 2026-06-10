@@ -138,3 +138,62 @@ if (enterBtn) {
   padding: 20px;
 
 }
+#landingPage img {
+
+  width: 260px;
+
+  border-radius: 28px;
+
+  box-shadow: 0 0 40px rgba(0, 170, 255, 0.35);
+
+  margin-bottom: 24px;
+
+}
+
+.tagline {
+
+  font-size: 28px;
+
+  font-weight: bold;
+
+  margin: 8px 0;
+
+  color: #ffffff;
+
+}
+
+.subtitle {
+
+  font-size: 18px;
+
+  max-width: 520px;
+
+  color: #d8e6ff;
+
+  line-height: 1.6;
+
+}
+
+#enterBtn {
+
+  margin-top: 28px;
+
+  padding: 16px 38px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  background: linear-gradient(90deg, #00aaff, #ff9900);
+
+  color: white;
+
+  box-shadow: 0 0 25px rgba(255, 153, 0, 0.35);
+
+}
