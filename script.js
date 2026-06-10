@@ -129,6 +129,7 @@ async function showQuestions() {
         <p><b>קטגוריה:</b> ${question.category}</p>
 
         <p>${question.content}</p>
+       <div id="answers-${doc.id}"></div> 
 <button onclick="fillQuestionId('${doc.id}')">
 
 הגב לשאלה
@@ -210,7 +211,7 @@ async function showAnswers() {
       </div>
 
     `;
-
+loadAnswers(doc.id);
   });
 
 }
@@ -259,3 +260,34 @@ window.fillQuestionId = function(id) {
   ).value = id;
 
 };
+async function loadAnswers(questionId) {
+
+  const querySnapshot = await getDocs(collection(db, "answers"));
+
+  let html = "";
+
+  querySnapshot.forEach((doc) => {
+
+    const answer = doc.data();
+
+    if (answer.questionId === questionId) {
+
+      html += `
+
+        <p>💬 ${answer.content}</p>
+
+      `;
+
+    }
+
+  });
+
+  const container = document.querySelector(`#answers-${questionId}`);
+
+  if (container) {
+
+    container.innerHTML = html;
+
+  }
+
+}
