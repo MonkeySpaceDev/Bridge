@@ -268,3 +268,124 @@ if (enterBtn) {
   border-radius: 999px;
 
 }
+/* ===== Bridge Home Clean Design ===== */
+
+#homePage {
+
+  min-height: 100vh;
+
+  background: #111827;
+
+  color: #f9fafb;
+
+  padding: 40px 20px;
+
+}
+
+#homePage h1,
+
+#homePage h2,
+
+#homePage h3,
+
+#homePage p {
+
+  color: #f9fafb;
+
+}
+
+#homePage input,
+
+#homePage textarea,
+
+#homePage select {
+
+  width: 90%;
+
+  max-width: 520px;
+
+  padding: 14px;
+
+  margin: 10px auto;
+
+  display: block;
+
+  border-radius: 14px;
+
+  border: 1px solid #374151;
+
+  background: #1f2937;
+
+  color: white;
+
+  font-size: 16px;
+
+}
+
+#homePage textarea {
+
+  min-height: 120px;
+
+}
+
+#homePage button {
+
+  padding: 14px 28px;
+
+  margin: 10px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+}
+
+#questionBtn,
+
+#addBtn {
+
+  background: #f59e0b;
+
+}
+
+#friends,
+
+#questionsList,
+
+#answersList {
+
+  max-width: 760px;
+
+  margin: 30px auto;
+
+}
+
+#friends > div,
+
+#questionsList > div,
+
+#answersList > div {
+
+  background: #1f2937;
+
+  border: 1px solid #374151;
+
+  border-radius: 22px;
+
+  padding: 22px;
+
+  margin: 18px auto;
+
+  max-width: 680px;
+
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+
+}
