@@ -109,7 +109,13 @@ showUsers();
 async function showQuestions() {
 
   const questionsList = document.querySelector("#questionsList");
+const searchText =
 
+document.querySelector("#searchInput")
+
+?.value
+
+?.toLowerCase() || "";
   if (!questionsList) return;
 
   questionsList.innerHTML = "";
@@ -119,7 +125,19 @@ async function showQuestions() {
   querySnapshot.forEach((doc) => {
 
     const question = doc.data();
+if (
 
+ !question.title.toLowerCase().includes(searchText)
+
+ &&
+
+ !question.content.toLowerCase().includes(searchText)
+
+){
+
+ return;
+
+}
     questionsList.innerHTML += `
 
       <div>
@@ -295,5 +313,20 @@ if (container) {
     container.innerHTML = html;
 
   }
+
+}
+const searchInput =
+
+document.querySelector("#searchInput");
+
+if(searchInput){
+
+ searchInput.addEventListener(
+
+  "input",
+
+  showQuestions
+
+ );
 
 }
