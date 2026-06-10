@@ -140,7 +140,7 @@ async function showQuestions() {
       </div>
 
     `;
-
+loadAnswers(doc.id);
   });
 
 }
@@ -211,7 +211,7 @@ async function showAnswers() {
       </div>
 
     `;
-loadAnswers(doc.id);
+
   });
 
 }
