@@ -133,19 +133,7 @@ const content = (question.content || "").toLowerCase();
 
 const category = (question.category || "").toLowerCase();
 
-if (
 
-  searchText &&
-
-  !title.includes(searchText) &&
-
-  !content.includes(searchText) &&
-
-  !category.includes(searchText)
-
-) {
-
-  return;
 
 }!question.title.toLowerCase().includes(searchText)
 
