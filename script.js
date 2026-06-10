@@ -105,17 +105,10 @@ document.querySelector("#addBtn").onclick = async function () {
 
 };
 
-showUsers();
 async function showQuestions() {
 
   const questionsList = document.querySelector("#questionsList");
-const searchText =
 
-document.querySelector("#searchInput")
-
-?.value
-
-?.toLowerCase() || "";
   if (!questionsList) return;
 
   questionsList.innerHTML = "";
@@ -125,7 +118,7 @@ document.querySelector("#searchInput")
   querySnapshot.forEach((doc) => {
 
     const question = doc.data();
-    
+
     questionsList.innerHTML += `
 
       <div>
@@ -135,18 +128,23 @@ document.querySelector("#searchInput")
         <p><b>קטגוריה:</b> ${question.category}</p>
 
         <p>${question.content}</p>
-       <div id="answers-${doc.id}"></div> 
-<button onclick="fillQuestionId('${doc.id}')">
 
-הגב לשאלה
+        <div id="answers-${doc.id}"></div>
 
-</button>
+        <button onclick="fillQuestionId('${doc.id}')">
+
+          הגב לשאלה
+
+        </button>
+
         <hr>
 
       </div>
 
     `;
-loadAnswers(doc.id);
+
+    loadAnswers(doc.id);
+
   });
 
 }
@@ -189,36 +187,37 @@ document.querySelector("#questionBtn").onclick = async function () {
 
 };
 
-showQuestions();
-async function showAnswers() {
+window.fillQuestionId = function(id) {
 
-  const answersList = document.querySelector("#answersList");
+  document.querySelector("#answerQuestionId").value = id;
 
-  if (!answersList) return;
+};
 
-  answersList.innerHTML = "";
+async function loadAnswers(questionId) {
 
   const querySnapshot = await getDocs(collection(db, "answers"));
+
+  let html = "";
 
   querySnapshot.forEach((doc) => {
 
     const answer = doc.data();
 
-    answersList.innerHTML += `
+    if (answer.questionId === questionId) {
 
-      <div>
+      html += `<p>💬 ${answer.content}</p>`;
 
-        <p>💬 ${answer.content}</p>
-
-        <p><small>שאלה: ${answer.questionId}</small></p>
-
-        <hr>
-
-      </div>
-
-    `;
+    }
 
   });
+
+  const container = document.querySelector(`#answers-${questionId}`);
+
+  if (container) {
+
+    container.innerHTML = html;
+
+  }
 
 }
 
@@ -252,69 +251,10 @@ document.querySelector("#answerBtn").onclick = async function () {
 
   document.querySelector("#answerContent").value = "";
 
-  showAnswers();
+  showQuestions();
 
 };
 
-showAnswers();
-window.fillQuestionId = function(id) {
+showUsers();
 
-  document.querySelector(
-
-    "#answerQuestionId"
-
-  ).value = id;
-
-};
-async function loadAnswers(questionId) {
-
-  const querySnapshot = await getDocs(collection(db, "answers"));
-
-  let html = "";
-
-  querySnapshot.forEach((doc) => {
-
-    const answer = doc.data();
-
-    if (answer.questionId === questionId) {
-
-      html += `
-
-        <p>💬 ${answer.content}</p>
-
-      `;
-
-    }
-
-  });
-const container = document.querySelector(`#answers-${questionId}`);
-
-if (container) {
-
-  container.innerHTML = html;
-
-}
-  const container = document.querySelector(`#answers-${questionId}`);
-
-  if (container) {
-
-    container.innerHTML = html;
-
-  }
-
-}
-const searchInput =
-
-document.querySelector("#searchInput");
-
-if(searchInput){
-
- searchInput.addEventListener(
-
-  "input",
-
-  showQuestions
-
- );
-
-}
+showQuestions();
