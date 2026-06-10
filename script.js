@@ -127,19 +127,17 @@ document.querySelector("#searchInput")
     const question = doc.data();
 
 
- const title = (question.title || "").toLowerCase();
+ 
 
-const content = (question.content || "").toLowerCase();
+ 
 
-const category = (question.category || "").toLowerCase();
+const searchInput = document.querySelector("#searchInput");
 
+const searchText = searchInput
 
+  ? searchInput.value.trim().toLowerCase()
 
-}!question.title.toLowerCase().includes(searchText)
-
- &&const searchInput = document.querySelector("#searchInput");
-
-const searchText = searchInput ? searchInput.value.trim().toLowerCase() : "";
+  : "";
 
 const title = (question.title || "").toLowerCase();
 
@@ -163,11 +161,8 @@ if (
 
 }
 
- !question.content.toLowerCase().includes(searchText)
 
-){
 
- return;
 
 }
     questionsList.innerHTML += `
