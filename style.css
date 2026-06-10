@@ -21,6 +21,23 @@ input {
   margin: 10px;
 
 }
+<select id="category">
+
+    <option value="General">General</option>
+
+    <option value="Technology">Technology</option>
+
+    <option value="Entrepreneurship">Entrepreneurship</option>
+
+    <option value="Relationships">Relationships</option>
+
+    <option value="Gaming">Gaming</option>
+
+    <option value="Faith">Faith</option>
+
+    <option value="Philosophy">Philosophy</option>
+
+</select>
 
 button {
 
