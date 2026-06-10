@@ -135,7 +135,7 @@ async function showQuestions() {
       </div>
 
     `;
-
+<p><small>מזהה שאלה: ${doc.id}</small></p>
   });
 
 }
