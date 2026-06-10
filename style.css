@@ -214,3 +214,20 @@ if (enterBtn) {
   box-shadow: 0 0 25px rgba(255, 153, 0, 0.35);
 
 }
+<select id="category">
+
+    <option value="General">General</option>
+
+    <option value="Technology">Technology</option>
+
+    <option value="Entrepreneurship">Entrepreneurship</option>
+
+    <option value="Relationships">Relationships</option>
+
+    <option value="Gaming">Gaming</option>
+
+    <option value="Faith">Faith</option>
+
+    <option value="Philosophy">Philosophy</option>
+
+</select>
