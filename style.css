@@ -38,3 +38,26 @@ textarea {
   height: 80px;
 
 }
+const enterBtn =
+
+document.querySelector("#enterBtn");
+
+if (enterBtn) {
+
+  enterBtn.onclick = function () {
+
+    document.querySelector(
+
+      "#landingPage"
+
+    ).style.display = "none";
+
+    document.querySelector(
+
+      "#homePage"
+
+    ).style.display = "block";
+
+  };
+
+}
