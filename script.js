@@ -125,7 +125,7 @@ async function showQuestions() {
       <div>
 
         <h3>${question.title}</h3>
-
+<p><small>מזהה שאלה: ${doc.id}</small></p>
         <p><b>קטגוריה:</b> ${question.category}</p>
 
         <p>${question.content}</p>
@@ -135,7 +135,7 @@ async function showQuestions() {
       </div>
 
     `;
-<p><small>מזהה שאלה: ${doc.id}</small></p>
+
   });
 
 }
