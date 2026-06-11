@@ -308,4 +308,28 @@ window.showSection = function(sectionId) {
   }
 
 };
-window.showSection("connectSection");
+window.showSection = function(sectionId) {
+
+  const sections = ["connectSection", "questionSection", "storiesSection"];
+
+  sections.forEach(function(id) {
+
+    const section = document.querySelector("#" + id);
+
+    if (section) {
+
+      section.style.display = "none";
+
+    }
+
+  });
+
+  const selectedSection = document.querySelector("#" + sectionId);
+
+  if (selectedSection) {
+
+    selectedSection.style.display = "block";
+
+  }
+
+};
