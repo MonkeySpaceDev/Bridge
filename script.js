@@ -303,8 +303,9 @@ window.showSection = function(sectionId) {
 
     selectedSection.style.display = "block";
 
-    selectedSection.scrollIntoView({ behavior: "smooth" });
+    
 
   }
 
 };
+window.showSection("connectSection");
