@@ -338,3 +338,16 @@ window.showSection = function(sectionId) {
   Enter Bridge
 
 </button>
+const enterBtn = document.querySelector("#enterBtn");
+
+if (enterBtn) {
+
+  enterBtn.addEventListener("click", function () {
+
+    document.querySelector("#landingPage").style.display = "none";
+
+    document.querySelector("#homePage").style.display = "block";
+
+  });
+
+}
