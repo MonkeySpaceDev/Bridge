@@ -486,6 +486,76 @@ if (enterBtn) {
 
 }  
 
-  
+.homeFeed {
+
+  max-width: 900px;
+
+  margin: 40px auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 24px;
+
+}
+
+.featuredCard {
+
+  background: white;
+
+  border-radius: 26px;
+
+  padding: 30px;
+
+  text-align: center;
+
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+
+}
+
+.featuredCard span {
+
+  font-weight: bold;
+
+  color: #2563eb;
+
+}
+
+.featuredCard h2 {
+
+  margin: 18px 0;
+
+  color: #111827;
+
+}
+
+.featuredCard p {
+
+  color: #6b7280;
+
+  font-size: 16px;
+
+}
+
+.featuredCard button {
+
+  margin-top: 18px;
+
+  padding: 14px 26px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+}  
 
 
