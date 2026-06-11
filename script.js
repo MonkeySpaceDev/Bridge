@@ -333,3 +333,8 @@ window.showSection = function(sectionId) {
   }
 
 };
+<button id="enterBtn">
+
+  Enter Bridge
+
+</button>
