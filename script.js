@@ -111,6 +111,42 @@ async function showQuestions() {
 
   if (!questionsList) return;
 
+  questionsList.innerHTML = "<h3>שאלות בקהילה</h3>";
+
+  const querySnapshot = await getDocs(collection(db, "questions"));
+
+  querySnapshot.forEach((docSnap) => {
+
+    const question = docSnap.data();
+
+    questionsList.innerHTML += `
+
+      <div class="questionCard">
+
+        <h3>${question.title}</h3>
+
+        <p><b>קטגוריה:</b> ${question.category}</p>
+
+        <p>${question.content}</p>
+
+        <button onclick="fillQuestionId('${docSnap.id}')">להגיב לשאלה</button>
+
+        <div id="answers-${docSnap.id}"></div>
+
+        <hr>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+  const questionsList = document.querySelector("#questionsList");
+
+  if (!questionsList) return;
+
   questionsList.innerHTML = "";
 
   const querySnapshot = await getDocs(collection(db, "question"));
