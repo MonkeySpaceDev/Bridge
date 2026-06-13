@@ -579,3 +579,20 @@ if (enterBtn) {
     display: none;
 
 }
+body:not(.inside-bridge) .mainMenu,
+
+body:not(.inside-bridge) #homePage,
+
+body:not(.inside-bridge) #connectSection,
+
+body:not(.inside-bridge) #questionSection,
+
+body:not(.inside-bridge) #storiesSection,
+
+body:not(.inside-bridge) select {
+
+    display: none;
+
+}
+
+``
