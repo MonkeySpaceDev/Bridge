@@ -568,4 +568,14 @@ if (enterBtn) {
     display: none;
 
 }
+.mainMenu,
 
+#connectSection,
+
+#questionSection,
+
+#storiesSection {
+
+    display: none;
+
+}
