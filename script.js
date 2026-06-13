@@ -298,23 +298,19 @@ const enterBtn =
 
 document.querySelector("#enterBtn");
 
+const enterBtn = document.querySelector("#enterBtn");
+
 if (enterBtn) {
 
-  enterBtn.onclick = function () {
+  enterBtn.addEventListener("click", function () {
 
-    document.querySelector(
+    document.querySelector("#landingPage").style.display = "none";
 
-      "#landingPage"
+    document.querySelector("#homePage").style.display = "block";
 
-    ).style.display = "none";
+    window.scrollTo(0, 0);
 
-    document.querySelector(
-
-      "#homePage"
-
-    ).style.display = "block";
-
-  };
+  });
 
 }
 window.showSection = function(sectionId) {
