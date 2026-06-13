@@ -557,5 +557,15 @@ if (enterBtn) {
   cursor: pointer;
 
 }  
+#homePage,
 
+#connectSection,
+
+#questionSection,
+
+#storiesSection {
+
+    display: none;
+
+}
 
