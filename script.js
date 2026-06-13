@@ -294,9 +294,7 @@ document.querySelector("#answerBtn").onclick = async function () {
 showUsers();
 
 showQuestions();
-const enterBtn =
 
-document.querySelector("#enterBtn");
 
 const enterBtn = document.querySelector("#enterBtn");
 
