@@ -142,7 +142,7 @@ async function showQuestions() {
   });
 
 }
-
+async function showQuestions() {
   const questionsList = document.querySelector("#questionsList");
 
   if (!questionsList) return;
@@ -183,7 +183,7 @@ async function showQuestions() {
 
   });
 
-}
+]}
 
 document.querySelector("#questionBtn").onclick = async function () {
 
