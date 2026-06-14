@@ -331,8 +331,10 @@ window.showSection = function(sectionId) {
 
   if (selectedSection) {
 
-    selectedSection.style.display = "block";
+  
+selectedSection.classList.add("open");
 
+selectedSection.style.display = "block";
     
 
   }
