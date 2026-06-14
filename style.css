@@ -576,7 +576,17 @@ if (enterBtn) {
 
 #storiesSection {
 
-    display: none;
+  display: none;
+
+}
+
+#connectSection.open,
+
+#questionSection.open,
+
+#storiesSection.open {
+
+  display: block;
 
 }
 body:not(.inside-bridge) .mainMenu,
