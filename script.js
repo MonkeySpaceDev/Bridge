@@ -113,7 +113,7 @@ async function showQuestions() {
 
   questionsList.innerHTML = "<h3>שאלות בקהילה</h3>";
 
-  const querySnapshot = await getDocs(collection(db, "questions"));
+  const querySnapshot = await getDocs(collection(db, "question"));
 
   querySnapshot.forEach((docSnap) => {
 
