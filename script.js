@@ -131,7 +131,7 @@ question.id = docSnap.id;
 
         <p>${question.content}</p>
 <button onclick="openQuestion('${docSnap.id}')">פתח שאלה</button>
-        <button onclick="fillQuestionId('${docSnap.id}')">להגיב לשאלה</button>
+        
 
         <div id="answers-${docSnap.id}"></div>
 
