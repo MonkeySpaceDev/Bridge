@@ -118,7 +118,9 @@ async function showQuestions() {
   querySnapshot.forEach((docSnap) => {
 
     const question = docSnap.data();
-allQuestions.push(question);
+question.id = docSnap.id;
+    allQuestions.push(question);
+   
     questionsList.innerHTML += `
 
       <div class="questionCard">
@@ -128,7 +130,7 @@ allQuestions.push(question);
         <p><b>קטגוריה:</b> ${question.category}</p>
 
         <p>${question.content}</p>
-
+<button onclick="openQuestion('${docSnap.id}')">פתח שאלה</button>
         <button onclick="fillQuestionId('${docSnap.id}')">להגיב לשאלה</button>
 
         <div id="answers-${docSnap.id}"></div>
@@ -433,5 +435,10 @@ if (filteredQuestions.length === 0) {
     });
 
   });
+
+}
+function openQuestion(questionId) {
+
+    alert("נפתחה שאלה: " + questionId);
 
 }
