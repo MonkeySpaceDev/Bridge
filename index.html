@@ -80,7 +80,7 @@
 
     <p>שאלה שיכולה לפתוח דיון אמיתי בקהילה.</p>
 
-    <button onclick="document.getElementById('questionSection').style.display='block'; document.getElementById('questionSection').scrollIntoView();">הצטרף לדיון</button>
+    <button onclick="document.getElementById('homePage').style.display='none'; document.getElementById('questionPage').style.display='block'; window.scrollTo(0,0);">
 
   </div>
 
@@ -239,7 +239,7 @@ Connect with people.
     <option value="Philosophy">Philosophy</option>
 
 </select>
-<div id="questionSection">
+<div id="questionPage" style="display:none;">
     <h2>שאל שאלה</h2>
 
 <input id="questionTitle" type="text" placeholder="כותרת השאלה">
