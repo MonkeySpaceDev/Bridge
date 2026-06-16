@@ -388,3 +388,44 @@ async function showStories() {
 }
 
 showStories();
+const searchInput = document.querySelector("#searchInput");
+
+if (searchInput) {
+
+  searchInput.addEventListener("input", function () {
+
+    const searchText = this.value.toLowerCase();
+
+    const filteredQuestions = allQuestions.filter(question =>
+
+      question.title.toLowerCase().includes(searchText) ||
+
+      question.content.toLowerCase().includes(searchText)
+
+    );
+
+    const questionsList = document.querySelector("#questionsList");
+
+    questionsList.innerHTML = "<h3>שאלות בקהילה</h3>";
+
+    filteredQuestions.forEach(question => {
+
+      questionsList.innerHTML += `
+
+        <div class="questionCard">
+
+          <h3>${question.title}</h3>
+
+          <p><b>קטגוריה:</b> ${question.category}</p>
+
+          <p>${question.content}</p>
+
+        </div>
+
+      `;
+
+    });
+
+  });
+
+}
