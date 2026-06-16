@@ -42,7 +42,7 @@
 
  
 
- <button id="enterBtn"onclick="document.body.classList.add('inside-bridge'); document.getElementById('landingPage').style.display='none'; document.getElementById('homePage').style.display='block'; window.scrollTo(0,0);"
+ <bridge id="enterBtn"onclick="document.body.classList.add('inside-bridge'); document.getElementById('landingPage').style.display='none'; document.getElementById('homePage').style.display='block'; window.scrollTo(0,0);"
 
   Enter Bridge
 
@@ -130,19 +130,19 @@ Connect with people.
 </div>
     <div class="mainMenu">
 
-  <button onclick="showSection('connectSection')">
+  <button onclick="document.getElementById('connectSection').style.display='block'; document.getElementById('connectSection').scrollIntoView();">
 
     🤝 הכר אנשים
 
   </button>
 
-  <button onclick="showSection('questionSection')">
+  <button onclick="showSection('questionSection')>
 
     ❓ שאל שאלה
 
   </button>
 
-  <button onclick="showSection('storiesSection')">
+  <button onclick="document.getElementById('storiesSection').style.display='block'; document.getElementById('storiesSection').scrollIntoView();">
 
     📖 סיפורים
 
