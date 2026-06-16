@@ -260,21 +260,7 @@ showUsers();
 showQuestions();
 
 
-const enterBtn = document.querySelector("#enterBtn");
 
-if (enterBtn) {
-
-  enterBtn.addEventListener("click", function () {
-
-    document.querySelector("#landingPage").style.display = "none";
-
-    document.querySelector("#homePage").style.display = "block";
-
-    window.scrollTo(0, 0);
-
-  });
-
-}
 window.showSection = function(sectionId) {
 
   const sections = ["connectSection", "questionSection", "storiesSection"];
