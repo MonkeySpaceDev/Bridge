@@ -104,7 +104,7 @@ document.querySelector("#addBtn").onclick = async function () {
   showUsers();
 
 };
-
+let allQuestions = [];
 async function showQuestions() {
 
   const questionsList = document.querySelector("#questionsList");
@@ -112,13 +112,13 @@ async function showQuestions() {
   if (!questionsList) return;
 
   questionsList.innerHTML = "<h3>שאלות בקהילה</h3>";
-
+ allQuestions = [];
   const querySnapshot = await getDocs(collection(db, "question"));
 
   querySnapshot.forEach((docSnap) => {
 
     const question = docSnap.data();
-
+allQuestions.push(question);
     questionsList.innerHTML += `
 
       <div class="questionCard">
