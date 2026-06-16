@@ -407,7 +407,13 @@ if (searchInput) {
     const questionsList = document.querySelector("#questionsList");
 
     questionsList.innerHTML = "<h3>שאלות בקהילה</h3>";
+if (filteredQuestions.length === 0) {
 
+  questionsList.innerHTML += "<p>לא נמצאו שאלות דומות</p>";
+
+  return;
+
+}
     filteredQuestions.forEach(question => {
 
       questionsList.innerHTML += `
