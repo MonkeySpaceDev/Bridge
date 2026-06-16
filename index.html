@@ -92,7 +92,11 @@
 
     <p>בעתיד כאן יופיעו סיפורים אמיתיים של אנשים.</p>
 
-    <button onclick="alert('אזור הסיפורים עדיין בבנייה')">שתף סיפור</button>
+    <button onclick="document.getElementById('storiesSection').style.display='block'; document.getElementById('storiesSection').scrollIntoView();">
+
+  שתף סיפור
+
+</button>
 
   </div>
 
@@ -269,8 +273,23 @@ Connect with people.
 <h2>תגובות אחרונות</h2>
 
 <div id="answersList"></div>
-<script type="module" src="script.js"></script>
+<div id="storiesSection" style="display:none;">
+
+  <h2>📖 סיפורים מהקהילה</h2>
+
+  <textarea id="storyContent" placeholder="שתף את הסיפור שלך..." rows="5"></textarea>
+
+  <br><br>
+
+  <button id="storyBtn">פרסם סיפור</button>
+
+  <div id="storiesList"></div>
+
 </div>
+<script type="module" src="script.js"></script>
+
+</div>
+
 </body>
 
 </html>
