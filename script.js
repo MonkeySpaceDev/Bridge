@@ -328,3 +328,34 @@ if (enterBtn) {
   });
 
 }
+const storyBtn = document.querySelector("#storyBtn");
+
+if (storyBtn) {
+
+  storyBtn.addEventListener("click", async function () {
+
+    const content = document.querySelector("#storyContent").value.trim();
+
+    if (content === "") {
+
+      alert("כתוב סיפור לפני הפרסום");
+
+      return;
+
+    }
+
+    await addDoc(collection(db, "stories"), {
+
+      content: content,
+
+      createdAt: Date.now()
+
+    });
+
+    alert("הסיפור פורסם בהצלחה");
+
+    document.querySelector("#storyContent").value = "";
+
+  });
+
+}
