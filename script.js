@@ -142,48 +142,12 @@ async function showQuestions() {
   });
 
 }
-async function showQuestions() {
-  const questionsList = document.querySelector("#questionsList");
 
-  if (!questionsList) return;
+  
 
-  questionsList.innerHTML = "";
 
-  const querySnapshot = await getDocs(collection(db, "question"));
 
-  querySnapshot.forEach((doc) => {
 
-    const question = doc.data();
-
-    questionsList.innerHTML += `
-
-      <div>
-
-        <h3>${question.title}</h3>
-
-        <p><b>קטגוריה:</b> ${question.category}</p>
-
-        <p>${question.content}</p>
-
-        <div id="answers-${doc.id}"></div>
-
-        <button onclick="fillQuestionId('${doc.id}')">
-
-          הגב לשאלה
-
-        </button>
-
-        <hr>
-
-      </div>
-
-    `;
-
-    loadAnswers(doc.id);
-
-  });
-
-]}
 
 document.querySelector("#questionBtn").onclick = async function () {
 
