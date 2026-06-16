@@ -442,3 +442,8 @@ function openQuestion(questionId) {
     alert("נפתחה שאלה: " + questionId);
 
 }
+window.openQuestion = function(questionId) {
+
+  alert("נפתחה שאלה: " + questionId);
+
+};
