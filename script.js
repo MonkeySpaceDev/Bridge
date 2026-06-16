@@ -355,7 +355,36 @@ if (storyBtn) {
     alert("הסיפור פורסם בהצלחה");
 
     document.querySelector("#storyContent").value = "";
+showStories();
+  });
+
+}
+async function showStories() {
+
+  const storiesList = document.querySelector("#storiesList");
+
+  if (!storiesList) return;
+
+  storiesList.innerHTML = "<h3>סיפורים שפורסמו</h3>";
+
+  const querySnapshot = await getDocs(collection(db, "stories"));
+
+  querySnapshot.forEach((docSnap) => {
+
+    const story = docSnap.data();
+
+    storiesList.innerHTML += `
+
+      <div class="storyCard">
+
+        <p>${story.content}</p>
+
+      </div>
+
+    `;
 
   });
 
 }
+
+showStories();
