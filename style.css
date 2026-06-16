@@ -606,3 +606,16 @@ body:not(.inside-bridge) select {
 }
 
 ``
+#enterBtn {
+
+  color: white !important;
+
+  font-size: 18px !important;
+
+  font-weight: bold !important;
+
+  min-width: 160px !important;
+
+  padding: 14px 28px !important;
+
+}
